@@ -1,9 +1,9 @@
 console.clear()
-var fs = require('fs')
-const path = require('path')
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
-const input = fs.readFileSync(path.join(__dirname, 'input.txt'))
-const demo = fs.readFileSync(path.join(__dirname, 'demo.txt'))
+const input = readFileSync(join(__dirname, 'input.txt'))
+const demo = readFileSync(join(__dirname, 'demo.txt'))
 
 const array = input.toString().split(/\r?\n/)
 array.push('')
