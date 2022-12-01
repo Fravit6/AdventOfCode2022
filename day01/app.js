@@ -4,11 +4,11 @@ const path = require('path')
 
 const input = fs.readFileSync(path.join(__dirname, 'input.txt'))
 const demo = fs.readFileSync(path.join(__dirname, 'demo.txt'))
-// console.log(demo.toString())
 
-const array = demo.toString().split(/\r?\n/)
+const array = input.toString().split(/\r?\n/)
 array.push('')
 
+// Part 1
 let max = 0
 let window = 0
 for (const elem of array) {
