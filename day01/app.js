@@ -21,25 +21,18 @@ console.log('Soluzione 1: ', max)
 // Part 2
 let somme = []
 let window = 0
-max = [0, 0, 0]
-for (const elem of array) {
-  if (elem != '') window += +elem
-  else {
+array.map((elem) => {
+  window += +elem
+  if (!elem) {
     somme.push(window)
     window = 0
   }
-}
-//console.log(somme)
-
-for (const somma of somme) {
-  const minimo = max.find((e) => e <= somma)
-  if (somma >= minimo) {
-    max.splice(max.indexOf(minimo), 0, somma)
-    max.pop()
-  }
-}
+})
 
 console.log(
   'Soluzione 2: ',
-  max.reduce((a, b) => a + b, 0)
+  somme
+    .sort((a, b) => b - a)
+    .slice(0, 3)
+    .reduce((a, b) => a + b, 0)
 )
