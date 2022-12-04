@@ -13,18 +13,19 @@ array.forEach((stringa) => {
   const borders = stringa.split(/[,\s-]+/).map((e) => +e)
 
   // Part 1
-  if (borders[0] >= borders[2] && borders[1] <= borders[3]) {
-    full_overlap++
-  } else if (borders[0] <= borders[2] && borders[1] >= borders[3]) {
+  if (
+    (borders[0] >= borders[2] && borders[1] <= borders[3]) ||
+    (borders[0] <= borders[2] && borders[1] >= borders[3])
+  ) {
     full_overlap++
   }
 
   // Part 2
-  if (borders[0] <= borders[3] && borders[1] >= borders[3]) {
-    basic_overlap++
-  } else if (borders[0] <= borders[2] && borders[1] >= borders[2]) {
-    basic_overlap++
-  } else if (borders[0] >= borders[2] && borders[1] <= borders[3]) {
+  if (
+    (borders[0] <= borders[3] && borders[1] >= borders[3]) ||
+    (borders[0] <= borders[2] && borders[1] >= borders[2]) ||
+    (borders[0] >= borders[2] && borders[1] <= borders[3])
+  ) {
     basic_overlap++
   }
 })
