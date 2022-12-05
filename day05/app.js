@@ -45,14 +45,24 @@ const stacks = stacks_input
 
 array.forEach((stringa) => {
   const numbers = stringa.match(/\d+/g)
-  // console.log(numbers)
 
   for (let move = 1; move <= numbers[0]; move++) {
-    const popped = stacks[numbers[1] - 1].pop()
-    stacks[numbers[2] - 1].push(popped)
+    stacks[numbers[2] - 1].push(stacks[numbers[1] - 1].pop())
   }
 })
-console.log(stacks)
-
 console.log('Soluzione 1: ')
+stacks.forEach((s) => console.log(s.pop()))
+
+// Part 2
+array.forEach((stringa) => {
+  const numbers = stringa.match(/\d+/g)
+
+  const to_move = stacks[numbers[1] - 1].slice(-numbers[0])
+  for (let move = 1; move <= numbers[0]; move++) {
+    stacks[numbers[1] - 1].pop()
+  }
+  stacks[numbers[2] - 1].push(...to_move)
+})
+
+console.log('Soluzione 2: ')
 stacks.forEach((s) => console.log(s.pop()))
